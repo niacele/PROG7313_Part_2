@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BudgetBuddy</string>
+    <string name="get_started">Get Started</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="my_budget_buddy">My Budget Buddy !</string>
 </resources>
