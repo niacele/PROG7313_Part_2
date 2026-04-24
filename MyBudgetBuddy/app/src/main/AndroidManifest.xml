@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BudgetBuddy">
         <activity
+            android:name=".Expense"
+            android:exported="false" />
+        <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="false" />
         <activity
