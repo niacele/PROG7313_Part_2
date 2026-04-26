@@ -11,38 +11,36 @@
         android:id="@+id/edtEmail"
         android:layout_width="250dp"
         android:layout_height="50dp"
+        android:autofillHints="emailAddress"
         android:ems="10"
         android:hint="@string/eg_johndoe_gmail_com"
         android:inputType="textEmailAddress"
-        android:autofillHints="emailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEmail"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.034"
         tools:ignore="TextContrastCheck,VisualLintOverlap" />
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="textPassword"
         android:autofillHints="password"
+        android:ems="10"
         android:hint="@string/enter_password"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="VisualLintOverlap" />
+        app:layout_constraintVertical_bias="0.028"
+        tools:ignore="VisualLintOverlap,TextContrastCheck" />
 
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_width="190dp"
-        android:layout_height="194dp"
+        android:layout_width="152dp"
+        android:layout_height="171dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -66,7 +64,7 @@
         tools:ignore="TextSizeCheck,TextContrastCheck,VisualLintOverlap" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnRegisterPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/transparent"
@@ -74,10 +72,10 @@
         android:textColor="@color/buddydarkblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.166"
         tools:ignore="VisualLintOverlap" />
 
     <TextView
@@ -89,10 +87,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        app:layout_constraintVertical_bias="0.059"
+        app:layout_constraintVertical_bias="0.165"
         tools:ignore="VisualLintOverlap" />
 
     <TextView
@@ -100,16 +98,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password"
-        android:textStyle="bold"
         android:textColor="@color/buddydarkblue"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.286"
+        app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="440dp"
-        tools:ignore="MissingConstraints,VisualLintOverlap" />
+        tools:ignore="MissingConstraints,VisualLintOverlap"
+        tools:layout_editor_absoluteY="610dp" />
 
     <ImageView
-        android:id="@+id/imgBorder"
+        android:id="@+id/imgEmailBorder"
         android:layout_width="270dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -119,10 +117,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.56"
         app:srcCompat="@drawable/rounded_corner"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/imgBorder"
+        android:id="@+id/imgPasswordBorder"
         android:layout_width="270dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -160,34 +158,22 @@
         app:srcCompat="@drawable/email_icon"
         tools:ignore="ContentDescription" />
 
+
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintHorizontal_bias="0.587"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78"
+        app:layout_constraintVertical_bias="0.766"
         app:srcCompat="@drawable/outline_arrow_forward_24"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/b_blob_removebg_preview"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imgPinkBlob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -197,6 +183,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/p_blob_removebg_preview"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imgBlueBlob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/b_blob_removebg_preview"
         tools:ignore="ContentDescription" />
 
 
