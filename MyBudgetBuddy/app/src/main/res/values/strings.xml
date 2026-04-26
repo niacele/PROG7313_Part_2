@@ -33,4 +33,7 @@
     <string name="enter_amount">Enter Amount</string>
     <string name="add_an_expense">Add An Expense</string>
     <string name="dummy_button">Dummy Button</string>
+    <string name="profile">Profile</string>
+    <string name="add">Add</string>
+    <string name="envelope">Envelope</string>
 </resources>
