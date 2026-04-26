@@ -2,8 +2,9 @@
     <string name="app_name">BudgetBuddy</string>
     <string name="get_started">Get Started</string>
     <string name="welcome_to">Welcome to</string>
-    <string name="my_budget_buddy">My Budget Buddy</string>
-    <string name="underlined_button"><u>Don\'t have an account ?</u></string>
+    <string name="my_budget_buddy">My Budget Buddy !</string>
+    <string name="underlined_button"><u>Dont have an account?</u></string>
+    <string name="underlined_button2"><u>Already have an account?</u></string>
     <string name="eg_johndoe_gmail_com">eg. johndoe@gmail.com</string>
     <string name="Login">Login</string>
     <string name="enter_password">Enter Password</string>
@@ -23,4 +24,13 @@
     <string name="generate_report">Generate Report</string>
     <string name="monthly_goal">Monthly Goal</string>
     <string name="filter_button">Filter Button</string>
+    <string name="back_button" />
+    <string name="insert_image">Insert Image</string>
+    <string name="date">Date</string>
+    <string name="amount_r">Amount (R)</string>
+    <string name="save">Save</string>
+    <string name="enter_date">Enter Date</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="add_an_expense">Add An Expense</string>
+    <string name="dummy_button">Dummy Button</string>
 </resources>

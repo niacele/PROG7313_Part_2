@@ -123,20 +123,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmailRegister"
         app:layout_constraintVertical_bias="0.136"
-        tools:ignore="Autofill,VisualLintOverlap" />
+        tools:ignore="Autofill,VisualLintOverlap,TextContrastCheck" />
 
-    <ImageView
-        android:id="@+id/imgBlueBlob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/b_blob_removebg_preview"
-        tools:ignore="ContentDescription" />
+
 
     <ImageView
         android:id="@+id/imgBorderPassword"
@@ -161,7 +150,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtConfirmPasswordReg"
-        app:layout_constraintVertical_bias="0.272"
+        app:layout_constraintVertical_bias="0.153"
         tools:ignore="TextContrastCheck,VisualLintOverlap" />
 
     <EditText
@@ -245,7 +234,21 @@
         app:srcCompat="@drawable/login_icons"
         tools:ignore="ContentDescription" />
 
-
+    <Button
+        android:id="@+id/btnRegisterPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:backgroundTint="@android:color/transparent"
+        android:text="@string/underlined_button2"
+        android:textColor="@color/buddydarkblue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        app:layout_constraintVertical_bias="0.166"
+        tools:ignore="VisualLintOverlap" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -259,4 +262,19 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/p_blob_removebg_preview"
         tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imgBlueBlob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/b_blob_removebg_preview"
+        tools:ignore="ContentDescription" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
