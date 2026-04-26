@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BudgetBuddy">
         <activity
+            android:name=".ImageExpense"
+            android:exported="false" />
+        <activity
+            android:name=".AccountInfo"
+            android:exported="false" />
+        <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".Report"
+            android:exported="false" />
+        <activity
+            android:name=".MonthlyGoal"
+            android:exported="false" />
+        <activity
             android:name=".Home"
             android:exported="false" />
         <activity
