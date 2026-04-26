@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
+
+    <include layout="@layout/activity_nav_bar_layout"/>
+
     <TextView
         android:id="@+id/txtMonthName"
         android:layout_width="wrap_content"
@@ -92,33 +95,6 @@
         app:layout_constraintVertical_bias="0.158"
         app:srcCompat="@drawable/filter_icon_removebg_preview"
         tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
-
-    <ImageButton
-        android:id="@+id/btnAddExpenseButton"
-        android:layout_width="62dp"
-        android:layout_height="66dp"
-        android:background="@null"
-        android:contentDescription="@string/back_button"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956"
-        app:srcCompat="@drawable/plus_icon_removebg_preview"
-        tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck,SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/txtLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dummy_button"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMonthlyGoal" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

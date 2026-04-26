@@ -13,8 +13,6 @@ class MainActivity : AppCompatActivity() {
     //global declarations
     private lateinit var btnGetStarted: Button
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
