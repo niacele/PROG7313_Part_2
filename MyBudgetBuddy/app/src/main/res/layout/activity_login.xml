@@ -17,9 +17,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEmail"
-        app:layout_constraintVertical_bias="0.034"
+        app:layout_constraintVertical_bias="0.013"
         tools:ignore="TextContrastCheck,VisualLintOverlap" />
 
     <EditText
@@ -32,9 +33,10 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword"
-        app:layout_constraintVertical_bias="0.028"
+        app:layout_constraintVertical_bias="0.017"
         tools:ignore="VisualLintOverlap,TextContrastCheck" />
 
     <ImageView
@@ -101,10 +103,10 @@
         android:textColor="@color/buddydarkblue"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintHorizontal_bias="0.229"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints,VisualLintOverlap"
-        tools:layout_editor_absoluteY="610dp" />
+        tools:layout_editor_absoluteY="561dp" />
 
     <ImageView
         android:id="@+id/imgEmailBorder"
@@ -165,10 +167,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.766"
+        app:layout_constraintVertical_bias="0.776"
         app:srcCompat="@drawable/outline_arrow_forward_24"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
