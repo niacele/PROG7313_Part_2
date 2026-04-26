@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BudgetBuddy">
         <activity
+            android:name=".NavBarLayout"
+            android:exported="false" />
+        <activity
             android:name=".ImageExpense"
             android:exported="false" />
         <activity
