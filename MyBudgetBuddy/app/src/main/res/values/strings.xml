@@ -2,8 +2,8 @@
     <string name="app_name">BudgetBuddy</string>
     <string name="get_started">Get Started</string>
     <string name="welcome_to">Welcome to</string>
-    <string name="my_budget_buddy">My Budget Buddy !</string>
-    <string name="underlined_button"><u>Don't have an account ?</u></string>
+    <string name="my_budget_buddy">My Budget Buddy</string>
+    <string name="underlined_button"><u>Don\'t have an account ?</u></string>
     <string name="eg_johndoe_gmail_com">eg. johndoe@gmail.com</string>
     <string name="Login">Login</string>
     <string name="enter_password">Enter Password</string>
