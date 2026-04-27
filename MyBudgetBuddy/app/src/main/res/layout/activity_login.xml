@@ -191,7 +191,6 @@
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
-
     <ImageView
         android:id="@+id/imgBlueBlob"
         android:layout_width="wrap_content"
