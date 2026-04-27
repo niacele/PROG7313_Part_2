@@ -50,4 +50,5 @@
     <string name="maximum_goal">Maximum Goal</string>
     <string name="minimum_goal">Minimum Goal</string>
     <string name="month_displayed_here">Month Displayed Here!!</string>
+    <string name="enter_expense_description">Enter Expense Description</string>
 </resources>
