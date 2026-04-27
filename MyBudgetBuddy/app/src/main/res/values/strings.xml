@@ -36,4 +36,5 @@
     <string name="profile">Profile</string>
     <string name="add">Add</string>
     <string name="envelope">Envelope</string>
+    <string name="back">Back</string>
 </resources>
