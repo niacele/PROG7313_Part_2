@@ -2,12 +2,15 @@ package com.example.budgetbuddy
 
 import Data.database.AppDatabase
 import android.app.DatePickerDialog
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -18,12 +21,17 @@ import java.util.Calendar
 class Expense : AppCompatActivity() {
     //global declarations
     private lateinit var edtAmount: EditText
+    private lateinit var edtDescription: EditText
     private lateinit var edtDate: EditText
     private lateinit var btnAddImage: ImageButton
     private lateinit var btnSave: Button
 
     //database
     private lateinit var db: AppDatabase
+
+    //image picker
+    private var selectedImageUri: Uri? = null
+    private lateinit var photoPickerLauncher: ActivityResultLauncher<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,11 +41,18 @@ class Expense : AppCompatActivity() {
 
         //typecasting
         edtAmount = findViewById(R.id.edtAmount)
+        edtDescription = findViewById(R.id.edtDescription)
         edtDate = findViewById(R.id.edtDate)
         btnAddImage = findViewById(R.id.btnAddImage)
         btnSave = findViewById(R.id.btnSave)
 
         db = AppDatabase.getDatabase(this)
+        photoPickerLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            uri?.let {
+                selectedImageUri = it
+                Toast.makeText(this, "Image selected", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         //button click listeners
         btnAddImage.setOnClickListener {
@@ -67,10 +82,11 @@ class Expense : AppCompatActivity() {
     private fun saveExpense(){
         //get the text from the input fields and remove extra spaces
         val amountTxt = edtAmount.text.toString().trim()
+        val description = edtDescription.text.toString().trim()
         val date = edtDate.toString().trim()
 
         //validation
-        if(amountTxt.isEmpty() || date.isEmpty()){
+        if(amountTxt.isEmpty()|| description.isEmpty() || date.isEmpty()){
             Toast.makeText(this, "Please fill in all fields",
                 Toast.LENGTH_SHORT).show()
             return
@@ -85,8 +101,9 @@ class Expense : AppCompatActivity() {
 
         val expense = Data.Expense(
             amount = amount,
-            date = date
-            //photoUri = selectedImageUri
+            description = description,
+            date = date,
+            photoUri = selectedImageUri.toString()
         )
 
         lifecycleScope.launch {
@@ -123,14 +140,12 @@ class Expense : AppCompatActivity() {
     }
 
     private fun photoPicker(){
-        //create an intent to open the photo picker
-        //val intent = Intent(Intent.ACTION_PICK)
-        //intent.type = "image/*"
-        //photoPickerLauncher.launch(intent)
+        photoPickerLauncher.launch("image/*")
     }
     private fun clearFields(){
         edtAmount.text.clear()
+        edtDescription.text.clear()
         edtDate.text.clear()
-        //selectedImageUri = null
+        selectedImageUri = null
     }
 }

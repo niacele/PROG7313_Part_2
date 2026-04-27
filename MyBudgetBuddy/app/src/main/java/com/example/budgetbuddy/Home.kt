@@ -45,11 +45,11 @@ class Home : AppCompatActivity() {
         //button onclick listener
         btnGenReport.setOnClickListener {
             val intent = Intent(this, Report::class.java)
-            intent.putExtra("selectedMonth", selectedMonth)
             startActivity(intent)
         }
         btnMonthlyGoal.setOnClickListener {
             val intent = Intent(this, MonthlyGoal::class.java)
+            intent.putExtra("selectedMonth", selectedMonth)
             startActivity(intent)
         }
 

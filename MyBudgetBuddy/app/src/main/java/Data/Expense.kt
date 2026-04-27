@@ -8,6 +8,8 @@ data class Expense(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val amount: Double,
+    val description: String,
     val date: String,
     val photoUri: String? = null
-)
+) {
+}

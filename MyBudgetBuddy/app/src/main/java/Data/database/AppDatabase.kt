@@ -18,7 +18,7 @@ import Data.MonthlyGoal
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
-    abstract fun monthlyDao(): MonthlyDao
+    abstract fun monthlyGoalDao(): MonthlyDao
     abstract fun expenseDao(): ExpenseDao
 
     companion object{

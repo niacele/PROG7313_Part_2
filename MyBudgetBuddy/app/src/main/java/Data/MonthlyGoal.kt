@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 data class MonthlyGoal(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
+    val month: String,
     val minGoal: Double,
     val maxGoal:Double
 )

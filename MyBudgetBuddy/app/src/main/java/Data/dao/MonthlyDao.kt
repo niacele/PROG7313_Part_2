@@ -14,6 +14,6 @@ interface MonthlyDao {
     @Update
     suspend fun updateGoal(goal: MonthlyGoal)
 
-    @Query("SELECT * FROM monthly_goal LIMIT 1")
-    suspend fun getGoal(): MonthlyGoal?
+    @Query("SELECT * FROM monthly_goal WHERE month = :month LIMIT 1")
+    suspend fun getGoalForMonth(month: String): MonthlyGoal?
 }
