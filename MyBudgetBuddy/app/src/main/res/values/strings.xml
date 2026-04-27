@@ -58,4 +58,11 @@
     <string name="currency">Currency</string>
     <string name="logout">Logout</string>
     <string name="manage_subscription">Manage Subscription</string>
+    <string name="user_information">User Information</string>
+    <string name="name">Name:</string>
+    <string name="name_will_appear_here">Name will appear here</string>
+    <string name="email_will_appear_here">Email will appear here</string>
+    <string name="join_date">Join Date:</string>
+    <string name="date_will_appear_here">Date will appear here</string>
+    <string name="account_info">Account Info</string>
 </resources>
