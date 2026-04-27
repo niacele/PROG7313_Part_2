@@ -51,4 +51,11 @@
     <string name="minimum_goal">Minimum Goal</string>
     <string name="month_displayed_here">Month Displayed Here!!</string>
     <string name="enter_expense_description">Enter Expense Description</string>
+    <string name="total_r">Total: R</string>
+    <string name="settings">Settings</string>
+    <string name="account_information">Account Information</string>
+    <string name="achievements">Achievements</string>
+    <string name="currency">Currency</string>
+    <string name="logout">Logout</string>
+    <string name="manage_subscription">Manage Subscription</string>
 </resources>
