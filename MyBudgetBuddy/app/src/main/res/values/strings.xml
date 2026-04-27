@@ -37,4 +37,12 @@
     <string name="add">Add</string>
     <string name="envelope">Envelope</string>
     <string name="back">Back</string>
+    <string name="expense_report">Expense Report</string>
+    <string name="expenses_will_appear_here_scrollview">Expenses will appear here + ScrollView!!</string>
+    <string name="enter_start_date">Enter Start Date</string>
+    <string name="enter_end_date">Enter End Date</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="report_output">Report Output:</string>
+    <string name="view_report">View Report</string>
 </resources>
