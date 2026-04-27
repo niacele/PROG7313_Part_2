@@ -45,4 +45,9 @@
     <string name="end_date">End Date</string>
     <string name="report_output">Report Output:</string>
     <string name="view_report">View Report</string>
+    <string name="enter_max_goal">Enter Max Goal</string>
+    <string name="enter_min_goal">Enter Min Goal</string>
+    <string name="maximum_goal">Maximum Goal</string>
+    <string name="minimum_goal">Minimum Goal</string>
+    <string name="month_displayed_here">Month Displayed Here!!</string>
 </resources>
