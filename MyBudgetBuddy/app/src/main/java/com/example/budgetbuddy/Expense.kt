@@ -159,6 +159,9 @@ class Expense : AppCompatActivity() {
                     Toast.LENGTH_SHORT).show()
 
                 clearFields()
+
+                val intent = Intent(this@Expense, Home::class.java)
+                startActivity(intent)
             }
         }
     }

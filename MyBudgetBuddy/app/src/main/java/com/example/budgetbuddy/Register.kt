@@ -2,6 +2,7 @@ package com.example.budgetbuddy
 
 import Data.User
 import Data.database.AppDatabase
+import Data.getCurrentDate
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText

@@ -23,6 +23,7 @@ class MonthlyGoal : AppCompatActivity() {
     private lateinit var edtMinGoal : EditText
     private lateinit var edtMaxGoal : EditText
     private lateinit var btnSaveMonthlyGoal : Button
+    private lateinit var btnBackToHome : Button
 
     private lateinit var db: AppDatabase
 
@@ -35,25 +36,6 @@ class MonthlyGoal : AppCompatActivity() {
         setContentView(R.layout.activity_monthly_goal)
 
         //bottom navigation
-        bottomNav = findViewById(R.id.bottomNav)
-
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_profile -> {
-                    startActivity(Intent(this, Settings::class.java))
-                    true
-                }
-                R.id.nav_add -> {
-                    startActivity(Intent(this, Expense::class.java))
-                    true
-                }
-                R.id.nav_envelope -> {
-                    startActivity(Intent(this, ComingSoon::class.java))
-                    true
-                }
-                else -> false
-            }
-        }//bottom navigation
         bottomNav = findViewById(R.id.bottomNav)
 
         bottomNav.setOnItemSelectedListener { item ->
@@ -90,6 +72,13 @@ class MonthlyGoal : AppCompatActivity() {
         btnSaveMonthlyGoal.setOnClickListener {
             saveGoals()
         }
+
+        //back to home
+        btnBackToHome.setOnClickListener {
+            val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+        }
+
 
         // show month in the TextView
         txtMonthOutput.text = selectedMonthKey ?: "No month selected"
