@@ -72,7 +72,7 @@ class Report : AppCompatActivity() {
         //database
         db = AppDatabase.getDatabase(this)
 
-        //datepicker
+        //date picker
         edtStartDate.setOnClickListener {
             showStartDatePicker()
         }

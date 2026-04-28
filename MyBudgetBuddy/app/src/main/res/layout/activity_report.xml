@@ -152,19 +152,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.612" />
 
-    <TextView
-        android:id="@+id/ExpensesAppearHere"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:text="@string/expenses_will_appear_here_scrollview"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792"
-        tools:ignore="TextSizeCheck" />
+
 
     <TextView
         android:id="@+id/txtTotalLabel"
@@ -194,5 +182,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.886" />
+
+    <ScrollView
+        android:layout_width="418dp"
+        android:layout_height="191dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtReportOutput"
+        app:layout_constraintVertical_bias="0.081">
+
+        <TextView
+            android:id="@+id/ExpensesAppearHere"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:text="@string/expenses_will_appear_here_scrollview"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.792"
+            tools:ignore="TextSizeCheck" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
