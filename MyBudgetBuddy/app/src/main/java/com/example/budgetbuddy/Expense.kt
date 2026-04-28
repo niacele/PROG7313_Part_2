@@ -62,25 +62,6 @@ class Expense : AppCompatActivity() {
                 }
                 else -> false
             }
-        }//bottom navigation
-        bottomNav = findViewById(R.id.bottomNav)
-
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_profile -> {
-                    startActivity(Intent(this, Settings::class.java))
-                    true
-                }
-                R.id.nav_add -> {
-                    startActivity(Intent(this, Expense::class.java))
-                    true
-                }
-                R.id.nav_envelope -> {
-                    startActivity(Intent(this, ComingSoon::class.java))
-                    true
-                }
-                else -> false
-            }
         }
 
         //typecasting
