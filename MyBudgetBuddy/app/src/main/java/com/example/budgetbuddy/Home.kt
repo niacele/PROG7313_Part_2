@@ -11,6 +11,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.DateFormatSymbols
 import java.util.Calendar
 
@@ -24,7 +28,10 @@ class Home : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
 
-    private var selectedMonth: String = ""
+    //month expenses
+    private var selectedMonthKey: String = ""
+
+    private var selectedMonthDisplay: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,12 +51,14 @@ class Home : AppCompatActivity() {
 
         //button onclick listener
         btnGenReport.setOnClickListener {
+            //go to report
             val intent = Intent(this, Report::class.java)
             startActivity(intent)
         }
         btnMonthlyGoal.setOnClickListener {
+            //go to monthly goel
             val intent = Intent(this, MonthlyGoal::class.java)
-            intent.putExtra("selectedMonth", selectedMonth)
+            intent.putExtra("selectedMonth", selectedMonthKey)
             startActivity(intent)
         }
 
@@ -67,31 +76,31 @@ class Home : AppCompatActivity() {
     }
 
     private fun showMonthPicker() {
-        // Example: use a DatePickerDialog to select month/year
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
 
         val datePicker = DatePickerDialog(this, { _, y, m, _ ->
-            selectedMonth = "${getMonthName(m)} $y"
-            txtMonthName.text = selectedMonth
-        //    updateTotalSpending(y, m)
-        }, year, month, 1)
+            val formattedMonth = String.format("%02d", m + 1)
+            selectedMonthKey = "$y-$formattedMonth"          // used for DB query
+            selectedMonthDisplay = "${getMonthName(m)} $y"   // user-friendly
+            txtMonthName.text = selectedMonthDisplay
 
-        // Hide day selection (optional: only month/year)
-        //datePicker.datePicker.findViewById<View>(
-        //    resources.getIdentifier("day", "id", "android")
-        //)?.visibility = View.GONE
+            updateTotalSpending(selectedMonthKey)
+        }, year, month, 1)
 
         datePicker.show()
     }
     private fun getMonthName(month: Int): String {
         return DateFormatSymbols().months[month]
     }
-    //private fun updateTotalSpending(y, m){
-    //    lifecycleScope.launch {
-    //        val totalSpending = db.expenseDao().GetExpensesForMonth(selectedMonth)
-    //        txtTotalExpensesAmount.text = "R%.2f".format(totalSpending)
-    //    }
-    //}
+
+    private fun updateTotalSpending(monthKey: String){
+        lifecycleScope.launch {
+            val totalSpending = db.expenseDao().getTotalForMonth(monthKey) ?: 0.0
+            withContext(Dispatchers.Main) {
+                txtTotalExpensesAmount.text = "R%.2f".format(totalSpending)
+            }
+        }
+    }
 }

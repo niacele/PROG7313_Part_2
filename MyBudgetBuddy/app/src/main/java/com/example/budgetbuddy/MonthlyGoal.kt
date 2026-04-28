@@ -31,7 +31,7 @@ class MonthlyGoal : AppCompatActivity() {
         setContentView(R.layout.activity_monthly_goal)
 
         //passed month
-        val selectedMonth = intent.getStringExtra("selectedMonth")
+        val selectedMonthKey = intent.getStringExtra("selectedMonth")
 
         //typecasting
         txtMonthOutput = findViewById(R.id.txtMonthOutput)
@@ -48,7 +48,7 @@ class MonthlyGoal : AppCompatActivity() {
         }
 
         // show month in the TextView
-        txtMonthOutput.text = selectedMonth ?: "No month selected"
+        txtMonthOutput.text = selectedMonthKey ?: "No month selected"
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

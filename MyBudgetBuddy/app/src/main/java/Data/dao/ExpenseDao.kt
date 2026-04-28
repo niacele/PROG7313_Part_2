@@ -10,8 +10,8 @@ interface ExpenseDao {
     @Insert
     suspend fun insertExpense(expense: Expense)
 
-    @Query("SELECT * FROM expenses WHERE strftime('y', date) = :year AND strftime('m', date) = :month ORDER BY date ASC")
-    suspend fun GetExpensesForMonth(year: String, month: String): List<Expense>
+    @Query("SELECT SUM(amount) FROM expenses WHERE date LIKE :month || '%'")
+    suspend fun getTotalForMonth(month: String): Double?
 
     @Query("SELECT * FROM expenses WHERE date BETWEEN :startDate AND :endDate")
     suspend fun getExpensesBetweenDates(startDate: String, endDate: String): List<Expense>
