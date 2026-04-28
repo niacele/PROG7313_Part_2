@@ -2,6 +2,7 @@ package com.example.budgetbuddy
 
 import Data.database.AppDatabase
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
@@ -26,17 +28,60 @@ class Expense : AppCompatActivity() {
     private lateinit var edtDate: EditText
     private lateinit var btnAddImage: ImageButton
     private lateinit var btnSave: Button
+    private lateinit var btnBack: Button
 
     private var selectedPhotoUri: String? = null
 
     //database
     private lateinit var db: AppDatabase
 
+    //nav bar
+    private lateinit var bottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_expense)
+
+        //bottom navigation
+        bottomNav = findViewById(R.id.bottomNav)
+
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_profile -> {
+                    startActivity(Intent(this, Settings::class.java))
+                    true
+                }
+                R.id.nav_add -> {
+                    startActivity(Intent(this, Expense::class.java))
+                    true
+                }
+                R.id.nav_envelope -> {
+                    startActivity(Intent(this, ComingSoon::class.java))
+                    true
+                }
+                else -> false
+            }
+        }//bottom navigation
+        bottomNav = findViewById(R.id.bottomNav)
+
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_profile -> {
+                    startActivity(Intent(this, Settings::class.java))
+                    true
+                }
+                R.id.nav_add -> {
+                    startActivity(Intent(this, Expense::class.java))
+                    true
+                }
+                R.id.nav_envelope -> {
+                    startActivity(Intent(this, ComingSoon::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
 
         //typecasting
         edtAmount = findViewById(R.id.edtAmount)
@@ -44,6 +89,7 @@ class Expense : AppCompatActivity() {
         edtDate = findViewById(R.id.edtDate)
         btnAddImage = findViewById(R.id.btnAddImage)
         btnSave = findViewById(R.id.btnSave)
+        btnBack = findViewById(R.id.btnBackButton)
 
         db = AppDatabase.getDatabase(this)
 
@@ -63,6 +109,11 @@ class Expense : AppCompatActivity() {
         //date picker
         edtDate.setOnClickListener {
             showDatePicker()
+        }
+
+        btnBack.setOnClickListener {
+            val intent = Intent(this, Home::class.java)
+            startActivity(intent)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
