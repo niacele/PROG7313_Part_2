@@ -20,125 +20,164 @@
         app:srcCompat="@drawable/budgetbuddyicon_removebg_preview"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
-    <EditText
-        android:id="@+id/edtFirstName"
-        android:layout_width="124dp"
-        android:layout_height="48dp"
-        android:autofillHints="name"
-        android:ems="10"
-        android:hint="@string/eg_john"
-        android:inputType="text"
+    <ImageView
+        android:id="@+id/imgPinkBlob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/p_blob_removebg_preview"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.421"
-        tools:ignore="VisualLintOverlap" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/buddydarkblue"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp">
 
-    <ImageView
-        android:id="@+id/imgBorderFirstName"
-        android:layout_width="130dp"
-        android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.268"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.421"
-        app:srcCompat="@drawable/rounded_corner"
-        tools:ignore="ContentDescription" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtFirstName"
+            android:layout_width="124dp"
+            android:layout_height="48dp"
+            android:autofillHints="name"
+            android:hint="First Name"
+            android:inputType="text"
+            android:ems="10" />
 
-    <EditText
-        android:id="@+id/edtLastName"
-        android:layout_width="124dp"
-        android:layout_height="48dp"
-        android:autofillHints="name"
-        android:ems="10"
-        android:hint="@string/eg_doe"
-        android:inputType="text"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toEndOf="@+id/edtFirstName"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419"
-        tools:ignore="TextContrastCheck,VisualLintOverlap" />
-
-    <ImageView
-        android:id="@+id/imgBorderLastName"
-        android:layout_width="130dp"
-        android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tilFirstName"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.421"
-        app:srcCompat="@drawable/rounded_corner"
-        tools:ignore="ContentDescription" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/buddydarkblue"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtLastName"
+            android:layout_width="124dp"
+            android:layout_height="48dp"
+            android:autofillHints="name"
+            android:hint="Last Name"
+            android:inputType="text"
+            android:ems="10" />
 
-    <EditText
-        android:id="@+id/edtEmailRegister"
-        android:layout_width="277dp"
-        android:layout_height="50dp"
-        android:autofillHints="emailAddress"
-        android:ems="10"
-        android:hint="@string/eg_johndoe_gmail_com"
-        android:inputType="textEmailAddress"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmailRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.649"
+        app:layout_constraintHorizontal_bias="0.600"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/tilFirstName"
         app:layout_constraintVertical_bias="0.138"
-        tools:ignore="TextContrastCheck,VisualLintOverlap" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/buddydarkblue"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp">
 
-    <ImageView
-        android:id="@+id/imgBorderEmail"
-        android:layout_width="290dp"
-        android:layout_height="49dp"
-        android:autofillHints="password"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtEmailRegister"
+            android:layout_width="277dp"
+            android:layout_height="50dp"
+            android:autofillHints="emailAddress"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPasswordReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.600"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545"
-        app:srcCompat="@drawable/rounded_corner"
-        tools:ignore="ContentDescription" />
-
-
-    <EditText
-        android:id="@+id/edtPasswordReg"
-        android:layout_width="277dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="@string/enter_password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmailRegister"
+        app:layout_constraintTop_toBottomOf="@+id/tilEmailRegister"
         app:layout_constraintVertical_bias="0.136"
-        tools:ignore="Autofill,VisualLintOverlap,TextContrastCheck" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/buddydarkblue"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:passwordToggleEnabled="true">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPasswordReg"
+            android:layout_width="277dp"
+            android:layout_height="50dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:ems="10" />
 
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imgBorderPassword"
-        android:layout_width="290dp"
-        android:layout_height="49dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilConfirmPasswordReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintHorizontal_bias="0.600"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653"
-        app:srcCompat="@drawable/rounded_corner"
-        tools:ignore="ContentDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/tilPasswordReg"
+        app:layout_constraintVertical_bias="0.183"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/buddydarkblue"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtConfirmPasswordReg"
+            android:layout_width="277dp"
+            android:layout_height="50dp"
+            android:autofillHints="password"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:ems="10" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnRegister"
@@ -149,38 +188,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtConfirmPasswordReg"
+        app:layout_constraintTop_toBottomOf="@+id/tilConfirmPasswordReg"
         app:layout_constraintVertical_bias="0.153"
         tools:ignore="TextContrastCheck,VisualLintOverlap" />
 
-    <EditText
-        android:id="@+id/edtConfirmPasswordReg"
-        android:layout_width="277dp"
-        android:layout_height="50dp"
-        android:autofillHints="password"
-        android:ems="10"
-        android:hint="@string/confirm_password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.649"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPasswordReg"
-        app:layout_constraintVertical_bias="0.183"
-        tools:ignore="TextContrastCheck,VisualLintOverlap" />
-
-    <ImageView
-        android:id="@+id/imgBorderConfirmPassword"
-        android:layout_width="290dp"
-        android:layout_height="49dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.644"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.759"
-        app:srcCompat="@drawable/rounded_corner"
-        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/imgAccount"
@@ -195,16 +206,17 @@
         app:srcCompat="@drawable/account_icon"
         tools:ignore="ContentDescription" />
 
+
     <ImageView
         android:id="@+id/imgEmail"
         android:layout_width="71dp"
         android:layout_height="62dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552"
+        app:layout_constraintVertical_bias="0.568"
         app:srcCompat="@drawable/email_icon"
         tools:ignore="ContentDescription" />
 
@@ -214,10 +226,10 @@
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.671"
+        app:layout_constraintVertical_bias="0.694"
         app:srcCompat="@drawable/login_icons"
         tools:ignore="ContentDescription" />
 
@@ -227,41 +239,14 @@
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771"
+        app:layout_constraintVertical_bias="0.817"
         app:srcCompat="@drawable/login_icons"
         tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/btnRegisterPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:backgroundTint="@android:color/transparent"
-        android:text="@string/underlined_button2"
-        android:textColor="@color/buddydarkblue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
-        app:layout_constraintVertical_bias="0.166"
-        tools:ignore="VisualLintOverlap" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/p_blob_removebg_preview"
-        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/imgBlueBlob"
@@ -275,6 +260,26 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/b_blob_removebg_preview"
         tools:ignore="ContentDescription" />
+
+
+
+    <Button
+        android:id="@+id/btnRegisterPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:backgroundTint="@android:color/transparent"
+        android:text="@string/underlined_button2"
+        android:textColor="@color/buddypink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        app:layout_constraintVertical_bias="0.166"
+        tools:ignore="VisualLintOverlap" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,6 @@
         app:srcCompat="@drawable/p_blob_removebg_preview"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
-
     <ImageButton
         android:id="@+id/btnBackButton"
         android:layout_width="34dp"
@@ -44,6 +43,7 @@
         android:text="@string/account_info"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -58,6 +58,7 @@
         android:text="@string/user_information"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -73,10 +74,20 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.359"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUserInfoLabel"
         app:layout_constraintVertical_bias="0.043" />
+
+    <TextView
+        android:id="@+id/txtUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name_will_appear_here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtNameLabel"
+        app:layout_constraintTop_toTopOf="@+id/txtNameLabel"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtEmailLabel"
@@ -86,22 +97,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNameLabel"
         app:layout_constraintVertical_bias="0.048" />
-
-    <TextView
-        android:id="@+id/txtUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name_will_appear_here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.719"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUserInfoLabel"
-        app:layout_constraintVertical_bias="0.043" />
 
     <TextView
         android:id="@+id/txtUserEmail"
@@ -109,11 +108,9 @@
         android:layout_height="wrap_content"
         android:text="@string/email_will_appear_here"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUserName"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintStart_toEndOf="@+id/txtEmailLabel"
+        app:layout_constraintTop_toTopOf="@+id/txtEmailLabel"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtAccountInfoLabel"
@@ -122,6 +119,7 @@
         android:text="@string/account_information"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -138,7 +136,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAccountInfoLabel"
         app:layout_constraintVertical_bias="0.069"
@@ -150,11 +148,9 @@
         android:layout_height="wrap_content"
         android:text="@string/date_will_appear_here"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAccountInfoLabel"
-        app:layout_constraintVertical_bias="0.069"
+        app:layout_constraintStart_toEndOf="@+id/txtJoinDateLabel"
+        app:layout_constraintTop_toTopOf="@+id/txtJoinDateLabel"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="VisualLintOverlap" />
 
     <TextView
@@ -165,10 +161,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtJoinDateLabel"
-        app:layout_constraintVertical_bias="0.081"
+        app:layout_constraintVertical_bias="0.08"
         tools:ignore="VisualLintOverlap" />
 
     <TextView
@@ -177,11 +173,9 @@
         android:layout_height="wrap_content"
         android:text="@string/coming_soon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDate"
-        app:layout_constraintVertical_bias="0.084"
+        app:layout_constraintStart_toEndOf="@+id/txtAchievementsLabel"
+        app:layout_constraintTop_toTopOf="@+id/txtAchievementsLabel"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="VisualLintOverlap" />
 
     <ImageView
@@ -196,6 +190,5 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/b_blob_removebg_preview"
         tools:ignore="ContentDescription" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
