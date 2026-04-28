@@ -4,6 +4,7 @@ import Data.database.AppDatabase
 import android.app.DatePickerDialog
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -26,12 +27,10 @@ class Expense : AppCompatActivity() {
     private lateinit var btnAddImage: ImageButton
     private lateinit var btnSave: Button
 
+    private var selectedPhotoUri: String? = null
+
     //database
     private lateinit var db: AppDatabase
-
-    //image picker
-    private var selectedImageUri: Uri? = null
-    private lateinit var photoPickerLauncher: ActivityResultLauncher<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,19 +46,14 @@ class Expense : AppCompatActivity() {
         btnSave = findViewById(R.id.btnSave)
 
         db = AppDatabase.getDatabase(this)
-        photoPickerLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            uri?.let {
-                selectedImageUri = it
-                Toast.makeText(this, "Image selected", Toast.LENGTH_SHORT).show()
-            }
-        }
+
 
         //button click listeners
         btnAddImage.setOnClickListener {
             Toast.makeText(this, "Add a photo", Toast.LENGTH_SHORT).show()
 
             //open a photo picker
-            photoPicker()
+            pickImageLauncher.launch("image/*")
         }
 
         btnSave.setOnClickListener {
@@ -103,7 +97,7 @@ class Expense : AppCompatActivity() {
             amount = amount,
             description = description,
             date = date,
-            photoUri = selectedImageUri.toString()
+            photoUri = selectedPhotoUri.toString()
         )
 
         lifecycleScope.launch {
@@ -139,13 +133,18 @@ class Expense : AppCompatActivity() {
         datePickerDialog.show()
     }
 
-    private fun photoPicker(){
-        photoPickerLauncher.launch("image/*")
+    private val pickImageLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            selectedPhotoUri = uri.toString()
+            Toast.makeText(this, "Photo selected", Toast.LENGTH_SHORT).show()
+        }
     }
     private fun clearFields(){
         edtAmount.text.clear()
         edtDescription.text.clear()
         edtDate.text.clear()
-        selectedImageUri = null
+        selectedPhotoUri = null
     }
 }
