@@ -40,7 +40,9 @@ class Settings : AppCompatActivity() {
         }
 
         btnAccountInfo.setOnClickListener {
-            val intent = Intent(this, AccountInfo::class.java)
+            val currentUserId = 1
+            val intent = Intent(this@Settings, AccountInfo::class.java)
+            intent.putExtra("userId", currentUserId)
             startActivity(intent)
         }
 
@@ -50,6 +52,11 @@ class Settings : AppCompatActivity() {
         }
 
         btnAchievements.setOnClickListener {
+            val intent = Intent(this, ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        btnManageSubscription.setOnClickListener {
             val intent = Intent(this, ComingSoon::class.java)
             startActivity(intent)
         }
