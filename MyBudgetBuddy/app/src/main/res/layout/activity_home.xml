@@ -113,7 +113,7 @@
         tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
 
     <ImageButton
-        android:id="@+id/btnAddExpense"
+        android:id="@+id/btnAddExpenseHome"
         android:layout_width="63dp"
         android:layout_height="59dp"
         android:background="@null"

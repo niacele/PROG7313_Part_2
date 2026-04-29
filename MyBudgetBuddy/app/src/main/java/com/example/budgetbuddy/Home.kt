@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -30,7 +31,7 @@ class Home : AppCompatActivity() {
 
     //nav bar buttons
     private lateinit var btnAccountButton: ImageButton
-    private lateinit var btnAddExpense: ImageButton
+    private lateinit var btnAddExpenseHome: ImageButton
     private lateinit var btnEnvelope: ImageButton
 
 
@@ -52,7 +53,7 @@ class Home : AppCompatActivity() {
         txtMonthName = findViewById(R.id.txtMonthName)
         txtTotalExpensesAmount = findViewById(R.id.txtTotalExpensesAmount)
         btnAccountButton = findViewById(R.id.btnAccountButton)
-        btnAddExpense = findViewById(R.id.btnAddExpense)
+        btnAddExpenseHome = findViewById(R.id.btnAddExpenseHome)
         btnEnvelope = findViewById(R.id.btnEnvelope)
 
         //database
@@ -82,7 +83,8 @@ class Home : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnAddExpense.setOnClickListener {
+        btnAddExpenseHome.setOnClickListener {
+            Toast.makeText(this, "you clicked Add Expense", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, Expense::class.java)
             startActivity(intent)
         }

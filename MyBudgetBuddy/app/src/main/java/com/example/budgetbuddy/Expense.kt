@@ -87,6 +87,9 @@ class Expense : AppCompatActivity() {
         }
 
         btnAddExpense.setOnClickListener {
+            //handle button click
+            Toast.makeText(this, "Open the expense screen",
+                Toast.LENGTH_SHORT).show()
             val intent = Intent(this, Expense::class.java)
             startActivity(intent)
         }
@@ -128,7 +131,7 @@ class Expense : AppCompatActivity() {
             amount = amount,
             description = description,
             date = date,
-            photoUri = selectedPhotoUri.toString()
+            photoUri = selectedPhotoUri
         )
 
         lifecycleScope.launch {
@@ -140,8 +143,7 @@ class Expense : AppCompatActivity() {
 
                 clearFields()
 
-                val intent = Intent(this@Expense, Home::class.java)
-                startActivity(intent)
+                goHome()
             }
         }
     }
@@ -180,5 +182,11 @@ class Expense : AppCompatActivity() {
         edtDescription.text.clear()
         edtDate.text.clear()
         selectedPhotoUri = null
+    }
+
+    private fun goHome()
+    {
+        val intent = Intent(this, Home::class.java)
+        startActivity(intent)
     }
 }
