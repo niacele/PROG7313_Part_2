@@ -23,7 +23,7 @@ class MonthlyGoal : AppCompatActivity() {
     private lateinit var edtMinGoal : EditText
     private lateinit var edtMaxGoal : EditText
     private lateinit var btnSaveMonthlyGoal : Button
-    private lateinit var btnBackToHome : Button
+    private lateinit var btnBackButton: ImageButton
 
     private lateinit var db: AppDatabase
 
@@ -45,7 +45,7 @@ class MonthlyGoal : AppCompatActivity() {
         edtMinGoal = findViewById(R.id.edtMinGoal)
         edtMaxGoal = findViewById(R.id.edtMaxGoal)
         btnSaveMonthlyGoal = findViewById(R.id.btnSaveMonthlyGoal)
-        btnBackToHome = findViewById(R.id.btnBackToHome)
+        btnBackButton = findViewById(R.id.btnBackButton)
         btnAccountButton = findViewById(R.id.btnAccountButton)
         btnAddExpense = findViewById(R.id.btnAddExpense)
         btnEnvelope = findViewById(R.id.btnEnvelope)
@@ -60,7 +60,7 @@ class MonthlyGoal : AppCompatActivity() {
         }
 
         //back to home
-        btnBackToHome.setOnClickListener {
+        btnBackButton.setOnClickListener {
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }

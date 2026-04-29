@@ -5,6 +5,7 @@ import Data.database.AppDatabase
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +20,7 @@ import kotlinx.coroutines.withContext
 class ImageExpense : AppCompatActivity() {
     //global declarations
     private lateinit var imgExpensePhoto: ImageView
-    private lateinit var btnBackToHome: Button
+    private lateinit var btnBackToHome: ImageButton
 
     private lateinit var db: AppDatabase
     private lateinit var expenseDao: ExpenseDao

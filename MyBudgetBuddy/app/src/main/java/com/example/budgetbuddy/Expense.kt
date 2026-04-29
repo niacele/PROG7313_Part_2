@@ -27,7 +27,7 @@ class Expense : AppCompatActivity() {
     private lateinit var edtDate: EditText
     private lateinit var btnAddImage: ImageButton
     private lateinit var btnSave: Button
-    private lateinit var btnBack: Button
+    private lateinit var btnBack: ImageButton
 
     private var selectedPhotoUri: String? = null
 
@@ -111,7 +111,7 @@ class Expense : AppCompatActivity() {
         //get the text from the input fields and remove extra spaces
         val amountTxt = edtAmount.text.toString().trim()
         val description = edtDescription.text.toString().trim()
-        val date = edtDate.toString().trim()
+        val date = edtDate.text.toString().trim()
 
         //validation
         if(amountTxt.isEmpty()|| description.isEmpty() || date.isEmpty()){
