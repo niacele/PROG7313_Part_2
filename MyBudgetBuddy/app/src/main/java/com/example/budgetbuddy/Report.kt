@@ -70,7 +70,7 @@ class Report : AppCompatActivity() {
 
         //button click listeners
         btnBackButton.setOnClickListener {
-            val intent = Intent(this, Expense::class.java)
+            val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }
 
@@ -151,15 +151,12 @@ class Report : AppCompatActivity() {
         val startDate = edtStartDate.text.toString().trim()
         val endDate = edtEndDate.text.toString().trim()
 
-        //validation
         if(startDate.isEmpty() || endDate.isEmpty()){
-            //Toast
             Toast.makeText(this, "Please enter both a start and end date",
                 Toast.LENGTH_SHORT).show()
             return
         }
 
-        //Database operation
         lifecycleScope.launch {
             val filteredExpenses = db.expenseDao().getExpensesBetweenDates(startDate, endDate)
 
@@ -172,10 +169,11 @@ class Report : AppCompatActivity() {
                     val noResultsText = TextView(this@Report)
                     noResultsText.text = "No expenses found for the selected period"
                     noResultsText.textSize = 16f
-
+                    noResultsText.textAlignment = TextView.TEXT_ALIGNMENT_CENTER
                     resultsContainer.addView(noResultsText)
                     return@runOnUiThread
                 }
+
                 var totalAmount = 0.0
 
                 for (expense in filteredExpenses) {
@@ -183,47 +181,36 @@ class Report : AppCompatActivity() {
                     val expenseText = TextView(this@Report)
                     expenseText.text =
                         "Category: ${expense.category}\n" +
-                                "Amount: R${expense.amount}\n" +
+                                "Amount: R${"%.2f".format(expense.amount)}\n" +
                                 "Date: ${expense.date}\n" +
-                                "Description: ${expense.description}"+
+                                "Description: ${expense.description}\n" +
                                 "__________________________________"
 
-                    // Styling
                     expenseText.textSize = 16f
                     expenseText.textAlignment = TextView.TEXT_ALIGNMENT_CENTER
-
-                    // Add expense details to screen
                     resultsContainer.addView(expenseText)
 
-                    // If an image was saved with this expense
+                    totalAmount += expense.amount
+
                     if (expense.photoUri != null) {
                         val imageView = ImageView(this@Report)
-
-                        // Set layout parameters
                         imageView.layoutParams = LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.MATCH_PARENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT
                         )
-
-                        // Maintain image proportions
                         imageView.adjustViewBounds = true
-                        // Prevent very large images
                         imageView.maxHeight = 800
+                        imageView.scaleType = ImageView.ScaleType.FIT_CENTER
 
                         try {
-                            // Load saved image from URI
                             imageView.setImageURI(Uri.parse(expense.photoUri))
-                            // Display image neatly
-                            imageView.scaleType = ImageView.ScaleType.FIT_CENTER
-
-                            // Add image below expense details
                             resultsContainer.addView(imageView)
 
                         } catch (e: Exception) {
-                            // If image fails to load
                             val imageErrorText = TextView(this@Report)
                             imageErrorText.text = "Image could not be loaded"
                             imageErrorText.textSize = 14f
+                            imageErrorText.textAlignment = TextView.TEXT_ALIGNMENT_CENTER
                             resultsContainer.addView(imageErrorText)
                         }
                     }
