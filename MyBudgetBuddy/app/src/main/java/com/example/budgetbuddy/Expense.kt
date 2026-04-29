@@ -113,28 +113,33 @@ class Expense : AppCompatActivity() {
         //get the text from the input fields and remove extra spaces
         val category = edtCategory.text.toString().trim()
         val amountTxt = edtAmount.text.toString().trim()
+        val date = edtDate.text.toString().trim() //changed from .string to .text.tostring
         val description = edtDescription.text.toString().trim()
-        val date = edtDate.text.toString().trim()
+
 
         //validation
-        if(category.isEmpty()||amountTxt.isEmpty()|| description.isEmpty() || date.isEmpty()){
-            Toast.makeText(this, "Please fill in all fields",
-                Toast.LENGTH_SHORT).show()
+        if (category.isEmpty() || amountTxt.isEmpty() || date.isEmpty()) {
+            Toast.makeText(
+                this, "Please fill in all fields",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
         val amount = amountTxt.toDoubleOrNull()
 
-        if(amount == null) {
-            Toast.makeText(this, "Please enter a valid amount",
-                Toast.LENGTH_SHORT).show()
+        if (amount == null) {
+            Toast.makeText(
+                this, "Please enter a valid amount",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
         val expense = Data.Expense(
             category = category,
             amount = amount,
-            description = description,
             date = date,
+            description = description,
             photoUri = selectedPhotoUri
         )
 
@@ -142,12 +147,12 @@ class Expense : AppCompatActivity() {
             db.expenseDao().insertExpense(expense)
 
             runOnUiThread {
-                Toast.makeText(this@Expense, "Expense saved successfully",
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@Expense, "Expense saved successfully",
+                    Toast.LENGTH_SHORT
+                ).show()
 
                 clearFields()
-
-                goHome()
             }
         }
     }
@@ -187,11 +192,5 @@ class Expense : AppCompatActivity() {
         edtDescription.text.clear()
         edtDate.text.clear()
         selectedPhotoUri = null
-    }
-
-    private fun goHome()
-    {
-        val intent = Intent(this, Home::class.java)
-        startActivity(intent)
     }
 }

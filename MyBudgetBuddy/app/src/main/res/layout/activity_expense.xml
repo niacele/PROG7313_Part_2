@@ -53,7 +53,7 @@
         app:layout_constraintVertical_bias="0.515" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ttilCategorylabel"
+        android:id="@+id/tilCategorylabel"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
         android:id="@+id/txtDescriptionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description"
+        android:text="@string/description"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -270,7 +270,7 @@
         tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
 
     <ImageButton
-        android:id="@+id/btnAddExpenseHome"
+        android:id="@+id/btnAddExpense"
         android:layout_width="63dp"
         android:layout_height="59dp"
         android:background="@null"
