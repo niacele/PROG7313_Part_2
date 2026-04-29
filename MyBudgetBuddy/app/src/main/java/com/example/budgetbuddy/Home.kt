@@ -56,6 +56,17 @@ class Home : AppCompatActivity() {
         btnAddExpenseHome = findViewById(R.id.btnAddExpenseHome)
         btnEnvelope = findViewById(R.id.btnEnvelope)
 
+        //initialize the date
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val formattedMonth = String.format("%02d", month + 1)
+
+        selectedMonthKey = "$year-$formattedMonth"
+        selectedMonthDisplay = "${getMonthName(month)} $year"
+        txtMonthName.text = selectedMonthDisplay
+
+
         //database
         db = AppDatabase.getDatabase(this)
 
@@ -66,7 +77,7 @@ class Home : AppCompatActivity() {
             startActivity(intent)
         }
         btnMonthlyGoal.setOnClickListener {
-            //go to monthly goel
+            //go to monthly goal
             val intent = Intent(this, MonthlyGoal::class.java)
             intent.putExtra("selectedMonth", selectedMonthKey)
             startActivity(intent)
@@ -76,6 +87,8 @@ class Home : AppCompatActivity() {
             //filter by month
             showMonthPicker()
         }
+
+        updateTotalSpending(selectedMonthKey)
 
         //nav bar buttons set on click listener
         btnAccountButton.setOnClickListener {
@@ -121,7 +134,7 @@ class Home : AppCompatActivity() {
         return DateFormatSymbols().months[month]
     }
 
-    private fun updateTotalSpending(monthKey: String){
+    private fun updateTotalSpending(monthKey: String) {
         lifecycleScope.launch {
             val totalSpending = db.expenseDao().getTotalForMonth(monthKey) ?: 0.0
             withContext(Dispatchers.Main) {

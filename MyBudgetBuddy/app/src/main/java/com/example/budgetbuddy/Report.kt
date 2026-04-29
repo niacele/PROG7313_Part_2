@@ -176,7 +176,6 @@ class Report : AppCompatActivity() {
                     resultsContainer.addView(noResultsText)
                     return@runOnUiThread
                 }
-
                 var totalAmount = 0.0
 
                 for (expense in filteredExpenses) {
@@ -186,10 +185,12 @@ class Report : AppCompatActivity() {
                         "Category: ${expense.category}\n" +
                                 "Amount: R${expense.amount}\n" +
                                 "Date: ${expense.date}\n" +
-                                "Description: ${expense.description}"
+                                "Description: ${expense.description}"+
+                                "__________________________________"
 
                     // Styling
                     expenseText.textSize = 16f
+                    expenseText.textAlignment = TextView.TEXT_ALIGNMENT_CENTER
 
                     // Add expense details to screen
                     resultsContainer.addView(expenseText)
@@ -227,6 +228,7 @@ class Report : AppCompatActivity() {
                         }
                     }
                 }
+                txtTotal.text = "Total: R%.2f".format(totalAmount)
             }
         }
     }

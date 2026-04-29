@@ -153,7 +153,6 @@
         app:layout_constraintVertical_bias="0.612" />
 
 
-
     <TextView
         android:id="@+id/txtTotalLabel"
         android:layout_width="150dp"
@@ -164,10 +163,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.886" />
+        app:layout_constraintVertical_bias="0.569" />
 
     <TextView
         android:id="@+id/txtTotal"
@@ -178,10 +177,10 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.886" />
+        app:layout_constraintVertical_bias="0.569" />
 
     <ScrollView
         android:layout_width="418dp"
@@ -197,6 +196,7 @@
             android:id = "@+id/resultsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical" />
     </ScrollView>
 
