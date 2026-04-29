@@ -22,6 +22,7 @@ import java.util.Calendar
 
 class Expense : AppCompatActivity() {
     //global declarations
+    private lateinit var edtCategory: EditText
     private lateinit var edtAmount: EditText
     private lateinit var edtDescription: EditText
     private lateinit var edtDate: EditText
@@ -45,6 +46,7 @@ class Expense : AppCompatActivity() {
         setContentView(R.layout.activity_expense)
 
         //typecasting
+        edtCategory = findViewById(R.id.edtCategory)
         edtAmount = findViewById(R.id.edtAmount)
         edtDescription = findViewById(R.id.edtDescription)
         edtDate = findViewById(R.id.edtDate)
@@ -109,12 +111,13 @@ class Expense : AppCompatActivity() {
 
     private fun saveExpense(){
         //get the text from the input fields and remove extra spaces
+        val category = edtCategory.text.toString().trim()
         val amountTxt = edtAmount.text.toString().trim()
         val description = edtDescription.text.toString().trim()
         val date = edtDate.text.toString().trim()
 
         //validation
-        if(amountTxt.isEmpty()|| description.isEmpty() || date.isEmpty()){
+        if(category.isEmpty()||amountTxt.isEmpty()|| description.isEmpty() || date.isEmpty()){
             Toast.makeText(this, "Please fill in all fields",
                 Toast.LENGTH_SHORT).show()
             return
@@ -128,6 +131,7 @@ class Expense : AppCompatActivity() {
         }
 
         val expense = Data.Expense(
+            category = category,
             amount = amount,
             description = description,
             date = date,
@@ -178,6 +182,7 @@ class Expense : AppCompatActivity() {
         }
     }
     private fun clearFields(){
+        edtCategory.text.clear()
         edtAmount.text.clear()
         edtDescription.text.clear()
         edtDate.text.clear()

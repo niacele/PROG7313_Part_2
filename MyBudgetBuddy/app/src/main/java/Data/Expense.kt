@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 data class Expense(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
+    val category: String,
     val amount: Double,
     val description: String,
     val date: String,

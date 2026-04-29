@@ -65,4 +65,6 @@
     <string name="join_date">Join Date:</string>
     <string name="date_will_appear_here">Date will appear here</string>
     <string name="account_info">Account Info</string>
+    <string name="category">Category</string>
+    <string name="enter_category">Enter Category</string>
 </resources>

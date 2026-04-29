@@ -3,10 +3,13 @@ package com.example.budgetbuddy
 import Data.database.AppDatabase
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -22,7 +25,7 @@ class Report : AppCompatActivity() {
     //global declarations
     private lateinit var btnBackButton: ImageButton
     private lateinit var txtExpenseReport: TextView
-    private lateinit var ExpensesAppearHere: TextView
+    private lateinit var resultsContainer: LinearLayout
     private lateinit var edtStartDate: EditText
     private lateinit var edtEndDate: EditText
     private lateinit var txtTotal: TextView
@@ -43,7 +46,6 @@ class Report : AppCompatActivity() {
         //typecasting
         btnBackButton = findViewById(R.id.btnBackButton)
         txtExpenseReport = findViewById(R.id.txtExpenseReport)
-        ExpensesAppearHere = findViewById(R.id.ExpensesAppearHere)
         edtStartDate = findViewById(R.id.edtStartDate)
         edtEndDate = findViewById(R.id.edtEndDate)
         txtTotal = findViewById(R.id.txtTotal)
@@ -51,6 +53,7 @@ class Report : AppCompatActivity() {
         btnAccountButton = findViewById(R.id.btnAccountButton)
         btnAddExpense = findViewById(R.id.btnAddExpense)
         btnEnvelope = findViewById(R.id.btnEnvelope)
+        resultsContainer = findViewById(R.id.resultsContainer)
 
         //database
         db = AppDatabase.getDatabase(this)
@@ -159,24 +162,71 @@ class Report : AppCompatActivity() {
         //Database operation
         lifecycleScope.launch {
             val filteredExpenses = db.expenseDao().getExpensesBetweenDates(startDate, endDate)
-            if(filteredExpenses.isEmpty()){
-                runOnUiThread {
-                    txtExpenseReport.text = "No expenses found between the selected dates."
-                    txtTotal.text = "0.00"
+
+            runOnUiThread {
+                resultsContainer.removeAllViews()
+
+                if (filteredExpenses.isEmpty()) {
+                    txtTotal.text = "Total: R0.00"
+
+                    val noResultsText = TextView(this@Report)
+                    noResultsText.text = "No expenses found for the selected period"
+                    noResultsText.textSize = 16f
+
+                    resultsContainer.addView(noResultsText)
+                    return@runOnUiThread
                 }
-                return@launch
-            } else {
-                var resultsText = " "
+
                 var totalAmount = 0.0
 
-                for(expense in filteredExpenses){
-                    resultsText +=
-                            "Amount: R${expense.amount}\n" +
-                            "Date: ${expense.date}\n"
-                    totalAmount += expense.amount
+                for (expense in filteredExpenses) {
+
+                    val expenseText = TextView(this@Report)
+                    expenseText.text =
+                        "Category: ${expense.category}\n" +
+                                "Amount: R${expense.amount}\n" +
+                                "Date: ${expense.date}\n" +
+                                "Description: ${expense.description}"
+
+                    // Styling
+                    expenseText.textSize = 16f
+
+                    // Add expense details to screen
+                    resultsContainer.addView(expenseText)
+
+                    // If an image was saved with this expense
+                    if (expense.photoUri != null) {
+                        val imageView = ImageView(this@Report)
+
+                        // Set layout parameters
+                        imageView.layoutParams = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
+                        )
+
+                        // Maintain image proportions
+                        imageView.adjustViewBounds = true
+                        // Prevent very large images
+                        imageView.maxHeight = 800
+
+                        try {
+                            // Load saved image from URI
+                            imageView.setImageURI(Uri.parse(expense.photoUri))
+                            // Display image neatly
+                            imageView.scaleType = ImageView.ScaleType.FIT_CENTER
+
+                            // Add image below expense details
+                            resultsContainer.addView(imageView)
+
+                        } catch (e: Exception) {
+                            // If image fails to load
+                            val imageErrorText = TextView(this@Report)
+                            imageErrorText.text = "Image could not be loaded"
+                            imageErrorText.textSize = 14f
+                            resultsContainer.addView(imageErrorText)
+                        }
+                    }
                 }
-                txtExpenseReport.text = resultsText
-                txtTotal.text = "%.2f".format(totalAmount)
             }
         }
     }

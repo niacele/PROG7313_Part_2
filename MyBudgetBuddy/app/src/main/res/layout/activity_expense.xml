@@ -18,10 +18,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintVertical_bias="0.087" />
 
     <ImageButton
         android:id="@+id/btnBackButton"
@@ -32,12 +32,55 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115"
+        app:layout_constraintVertical_bias="0.088"
         app:srcCompat="@drawable/back_icon_removebg_preview"
         tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/txtCategorylabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/category"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tilAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ttilCategorylabel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxStrokeColor="@color/buddydarkblue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCategorylabel"
+        app:layout_constraintVertical_bias="0.02">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCategory"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/enter_category"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/txtAmountHeading"
@@ -47,28 +90,27 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tilAmount"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAddAnExpense"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.954" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilAmount"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAddAnExpense"
-        app:layout_constraintVertical_bias="0.121"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:boxStrokeColor="@color/buddydarkblue"
         app:boxCornerRadiusBottomEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
         app:boxCornerRadiusTopEnd="8dp"
-        app:boxCornerRadiusTopStart="8dp">
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxStrokeColor="@color/buddydarkblue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAddAnExpense"
+        app:layout_constraintVertical_bias="0.234">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtAmount"
@@ -210,6 +252,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilDate"
         app:layout_constraintVertical_bias="0.514" />
+
     <ImageButton
         android:id="@+id/btnAccountButton"
         android:layout_width="69dp"
@@ -227,7 +270,7 @@
         tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
 
     <ImageButton
-        android:id="@+id/btnAddExpense"
+        android:id="@+id/btnAddExpenseHome"
         android:layout_width="63dp"
         android:layout_height="59dp"
         android:background="@null"
