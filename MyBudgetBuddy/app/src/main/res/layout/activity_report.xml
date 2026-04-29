@@ -208,4 +208,51 @@
             tools:ignore="TextSizeCheck" />
     </ScrollView>
 
+    <ImageButton
+        android:id="@+id/btnAccountButton"
+        android:layout_width="69dp"
+        android:layout_height="63dp"
+        android:background="@null"
+        android:contentDescription="@string/filter_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.982"
+        app:srcCompat="@drawable/account_icon"
+        tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
+
+    <ImageButton
+        android:id="@+id/btnAddExpense"
+        android:layout_width="63dp"
+        android:layout_height="59dp"
+        android:background="@null"
+        android:contentDescription="@string/filter_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.983"
+        app:srcCompat="@drawable/plus_icon_removebg_preview"
+        tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
+
+    <ImageButton
+        android:id="@+id/btnEnvelope"
+        android:layout_width="52dp"
+        android:layout_height="56dp"
+        android:background="@null"
+        android:contentDescription="@string/filter_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.983"
+        app:srcCompat="@drawable/envelope_icon"
+        tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

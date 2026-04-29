@@ -28,6 +28,12 @@ class Home : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
 
+    //nav bar buttons
+    private lateinit var btnAccountButton: ImageButton
+    private lateinit var btnAddExpense: ImageButton
+    private lateinit var btnEnvelope: ImageButton
+
+
     //month expenses
     private var selectedMonthKey: String = ""
 
@@ -45,6 +51,9 @@ class Home : AppCompatActivity() {
         btnMonthFilter = findViewById(R.id.btnMonthFilter)
         txtMonthName = findViewById(R.id.txtMonthName)
         txtTotalExpensesAmount = findViewById(R.id.txtTotalExpensesAmount)
+        btnAccountButton = findViewById(R.id.btnAccountButton)
+        btnAddExpense = findViewById(R.id.btnAddExpense)
+        btnEnvelope = findViewById(R.id.btnEnvelope)
 
         //database
         db = AppDatabase.getDatabase(this)
@@ -67,6 +76,21 @@ class Home : AppCompatActivity() {
             showMonthPicker()
         }
 
+        //nav bar buttons set on click listener
+        btnAccountButton.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
+
+        btnAddExpense.setOnClickListener {
+            val intent = Intent(this, Expense::class.java)
+            startActivity(intent)
+        }
+
+        btnEnvelope.setOnClickListener {
+            val intent = Intent(this, ComingSoon::class.java)
+            startActivity(intent)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

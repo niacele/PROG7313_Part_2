@@ -30,6 +30,11 @@ class Report : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
 
+    //nav bar buttons
+    private lateinit var btnAccountButton: ImageButton
+    private lateinit var btnAddExpense: ImageButton
+    private lateinit var btnEnvelope: ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -43,6 +48,9 @@ class Report : AppCompatActivity() {
         edtEndDate = findViewById(R.id.edtEndDate)
         txtTotal = findViewById(R.id.txtTotal)
         btnViewReport = findViewById(R.id.btnViewReport)
+        btnAccountButton = findViewById(R.id.btnAccountButton)
+        btnAddExpense = findViewById(R.id.btnAddExpense)
+        btnEnvelope = findViewById(R.id.btnEnvelope)
 
         //database
         db = AppDatabase.getDatabase(this)
@@ -65,6 +73,22 @@ class Report : AppCompatActivity() {
 
         btnViewReport.setOnClickListener {
             viewReport()
+        }
+
+        //nav bar buttons set on click listener
+        btnAccountButton.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
+
+        btnAddExpense.setOnClickListener {
+            val intent = Intent(this, Expense::class.java)
+            startActivity(intent)
+        }
+
+        btnEnvelope.setOnClickListener {
+            val intent = Intent(this, ComingSoon::class.java)
+            startActivity(intent)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

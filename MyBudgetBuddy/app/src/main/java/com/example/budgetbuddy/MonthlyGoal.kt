@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -26,6 +27,10 @@ class MonthlyGoal : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
 
+    //nav bar buttons
+    private lateinit var btnAccountButton: ImageButton
+    private lateinit var btnAddExpense: ImageButton
+    private lateinit var btnEnvelope: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +45,11 @@ class MonthlyGoal : AppCompatActivity() {
         edtMinGoal = findViewById(R.id.edtMinGoal)
         edtMaxGoal = findViewById(R.id.edtMaxGoal)
         btnSaveMonthlyGoal = findViewById(R.id.btnSaveMonthlyGoal)
+        btnBackToHome = findViewById(R.id.btnBackToHome)
+        btnAccountButton = findViewById(R.id.btnAccountButton)
+        btnAddExpense = findViewById(R.id.btnAddExpense)
+        btnEnvelope = findViewById(R.id.btnEnvelope)
+
 
         //database
         db = AppDatabase.getDatabase(this)
@@ -58,6 +68,23 @@ class MonthlyGoal : AppCompatActivity() {
 
         // show month in the TextView
         txtMonthOutput.text = selectedMonthKey ?: "No month selected"
+
+
+        //nav bar buttons set on click listener
+        btnAccountButton.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
+
+        btnAddExpense.setOnClickListener {
+            val intent = Intent(this, Expense::class.java)
+            startActivity(intent)
+        }
+
+        btnEnvelope.setOnClickListener {
+            val intent = Intent(this, ComingSoon::class.java)
+            startActivity(intent)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

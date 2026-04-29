@@ -23,6 +23,7 @@ class Register : AppCompatActivity() {
     private lateinit var edtPasswordReg: EditText
     private lateinit var edtConfirmPasswordReg: EditText
     private lateinit var btnRegister: Button
+    private lateinit var btnRegisterPage : Button
 
     private lateinit var db: AppDatabase
 
@@ -38,6 +39,7 @@ class Register : AppCompatActivity() {
         edtPasswordReg = findViewById(R.id.edtPasswordReg)
         edtConfirmPasswordReg = findViewById(R.id.edtConfirmPasswordReg)
         btnRegister = findViewById(R.id.btnRegister)
+        btnRegisterPage = findViewById(R.id.btnRegisterPage)
 
         db = AppDatabase.getDatabase(this) //initializing the database
 
@@ -47,6 +49,10 @@ class Register : AppCompatActivity() {
         //register button
         btnRegister.setOnClickListener {
             registerUser()
+        }
+
+        btnRegisterPage.setOnClickListener {
+            openLoginScreen()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

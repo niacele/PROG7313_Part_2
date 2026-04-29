@@ -31,6 +31,11 @@ class Expense : AppCompatActivity() {
 
     private var selectedPhotoUri: String? = null
 
+    //nav bar buttons
+    private lateinit var btnAccountButton: ImageButton
+    private lateinit var btnAddExpense: ImageButton
+    private lateinit var btnEnvelope: ImageButton
+
     //database
     private lateinit var db: AppDatabase
 
@@ -46,6 +51,9 @@ class Expense : AppCompatActivity() {
         btnAddImage = findViewById(R.id.btnAddImage)
         btnSave = findViewById(R.id.btnSave)
         btnBack = findViewById(R.id.btnBackButton)
+        btnAccountButton = findViewById(R.id.btnAccountButton)
+        btnAddExpense = findViewById(R.id.btnAddExpense)
+        btnEnvelope = findViewById(R.id.btnEnvelope)
 
         db = AppDatabase.getDatabase(this)
 
@@ -69,6 +77,22 @@ class Expense : AppCompatActivity() {
 
         btnBack.setOnClickListener {
             val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+        }
+
+        //nav bar buttons set on click listener
+        btnAccountButton.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
+
+        btnAddExpense.setOnClickListener {
+            val intent = Intent(this, Expense::class.java)
+            startActivity(intent)
+        }
+
+        btnEnvelope.setOnClickListener {
+            val intent = Intent(this, ComingSoon::class.java)
             startActivity(intent)
         }
 
