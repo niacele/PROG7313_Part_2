@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -27,8 +26,6 @@ class Home : AppCompatActivity() {
     private lateinit var btnMonthFilter : ImageButton
     private lateinit var txtTotalExpensesAmount : TextView
 
-    private lateinit var bottomNav: BottomNavigationView
-
     private lateinit var db: AppDatabase
 
     //month expenses
@@ -40,27 +37,6 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
-
-        //bottom navigation
-        bottomNav = findViewById(R.id.bottomNav)
-
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_profile -> {
-                    startActivity(Intent(this, Settings::class.java))
-                    true
-                }
-                R.id.nav_add -> {
-                    startActivity(Intent(this, Expense::class.java))
-                    true
-                }
-                R.id.nav_envelope -> {
-                    startActivity(Intent(this, ComingSoon::class.java))
-                    true
-                }
-                else -> false
-            }
-        }
 
 
         //typecasting

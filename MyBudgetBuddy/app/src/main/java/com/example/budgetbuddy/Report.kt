@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
@@ -31,34 +30,10 @@ class Report : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
 
-    //nav bar
-    private lateinit var bottomNav: BottomNavigationView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_report)
-
-        //bottom navigation
-        bottomNav = findViewById(R.id.bottomNav)
-
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_profile -> {
-                    startActivity(Intent(this, Settings::class.java))
-                    true
-                }
-                R.id.nav_add -> {
-                    startActivity(Intent(this, Expense::class.java))
-                    true
-                }
-                R.id.nav_envelope -> {
-                    startActivity(Intent(this, ComingSoon::class.java))
-                    true
-                }
-                else -> false
-            }
-        }
 
         //typecasting
         btnBackButton = findViewById(R.id.btnBackButton)
